@@ -23,7 +23,7 @@ the following one for the query 2:
 	comment    : String,
 	nationName : String,
 	regionName : String,
-	parts 		: [{
+	parts      : [{
 		partKey     : String,
 		mfgr        : String,
 		type        : String,
