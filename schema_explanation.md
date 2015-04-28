@@ -1,14 +1,22 @@
 ### What schema do we use?
 
-We will use the following document for the query 1:
+We will use the following document for the queries 1, 3 and 4:
 ```json
 {
-  shippdate      : ObjectId,
-  returnFlag     : String,
-  quantity       : Number,
-  extendedPrice  : Number,
-  discount       : Number,
-  tax            : Number
+	orderKey   : ObjectId,
+	orderDate  : Date,
+	mktSegment : String,
+	lineItems  : [{
+      discount      : Number,
+      extendedPrice : Number,
+      shipDate      : Date,
+      returnFlag    : String,
+      quantity      : Number,  
+      lineStatus    : Number,
+      tax           : Number
+	}],
+	regionName : String,
+	nationName : String
 }
 ```
 
@@ -24,27 +32,11 @@ the following one for the query 2:
 	nationName : String,
 	regionName : String,
 	parts      : [{
-		partKey     : String,
-		mfgr        : String,
-		type        : String,
-		size        : Number,
-		supplyCost  : Number
+	     partKey     : String,
+       mfgr        : String,
+       type        : String,
+       size        : Number,
+       supplyCost  : Number
 	}]
-}
-```
-
-and the following ones for the queries 3 and 4:
-```json
-{
-	orderKey   : ObjectId,
-	orderDate  : Date,
-	mktSegment : String,
-	lineItems  : [{
-    discount      : Number,
-    extendedPrice : Number,
-    shipDate      : Date
-	}],
-	regionName : String,
-	nationName : String
 }
 ```
