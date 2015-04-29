@@ -15,21 +15,24 @@ def insertData():
     db.queryone
     db.queryone.insert(
         [{
-          "_id"            : "20/10/2015",
-          "returnFlag"     : "returnFlag",
-          "quantity"       : 1,
-          "extendedPrice"  : 100,
-          "discount"       : 10,
-          "tax"            : 10
-        },
-        {
-          "_id"            : "20/10/2014",
-          "returnFlag"     : "returnFlag",
-          "quantity"       : 2,
-          "extendedPrice"  : 200,
-          "discount"       : 20,
-          "tax"            : 20
-        }]
+            "_id":  1,
+        	"orderKey"   : ObjectId,
+        	"orderDate"  : Date,
+        	"mktSegment" : String,
+            "shipPriority" : Number,
+        	"lineItems"  : [{
+              "discount"      : Number,
+              "extendedPrice" : Number,
+              "shipDate"      : Date,
+              "returnFlag"    : String,
+              "quantity"      : Number,
+              "lineStatus"    : Number,
+              "tax"           : Number
+        	}],
+        	"regionName" : String,
+        	"nationName" : String
+        }
+        ]
     )
     return;
 

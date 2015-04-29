@@ -6,6 +6,7 @@ We will use the following document for the queries 1, 3 and 4:
 	orderKey   : ObjectId,
 	orderDate  : Date,
 	mktSegment : String,
+	shipPriority : Number,
 	lineItems  : [{
       discount      : Number,
       extendedPrice : Number,
