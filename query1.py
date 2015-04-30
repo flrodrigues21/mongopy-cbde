@@ -17,7 +17,6 @@ def delete():
 
 def insertsQ1():
 	delete()
-
 	insertsQuery1 = [
 		{
 		"_id" : 1,
@@ -28,7 +27,7 @@ def insertsQ1():
 		"lineItems": [{
 		  "discount": 0.9,
 		  "extendedPrice": 5,
-		  "shipDate": 15,
+		  "shipDate": datetime(2015,4,30,1,1,1),
 		  "returnFlag": 'a',
 		  "quantity": 4,
 		  "lineStatus": 2,
@@ -36,7 +35,7 @@ def insertsQ1():
 		},{
 		  "discount": 0.4,
 		  "extendedPrice": 32,
-		  "shipDate"      : 5,
+		  "shipDate"      : datetime(2015,4,5,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -55,7 +54,7 @@ def insertsQ1():
 		"lineItems"  : [{
 		  "discount"      : 0.1,
 		  "extendedPrice" : 3,
-		  "shipDate"      : 20,
+		  "shipDate"      : datetime(2015,5,1,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -63,7 +62,7 @@ def insertsQ1():
 		},{
 		  "discount"      : 0.5,
 		  "extendedPrice" : 20,
-		  "shipDate"      : 3,
+		  "shipDate"      : datetime(2015,4,22,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 5,
 		  "lineStatus"    : 2,
@@ -81,7 +80,8 @@ def insertsQ1():
 print() #linea en blanco
 insertsQ1()
 
-date = 15
+
+date = datetime(2015,4,30,1,1,1)
 l = db.query1.aggregate([
 	{"$unwind": "$lineItems"},
 	{"$match": {

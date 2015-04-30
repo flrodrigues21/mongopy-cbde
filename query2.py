@@ -17,8 +17,6 @@ def delete():
 
 def insertsQ2():
 	delete()
-
-
 	insertsQuery2 = [
 	{
 	"_id":1,

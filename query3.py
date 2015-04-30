@@ -17,21 +17,17 @@ def delete():
 
 def insertsQ3():
 	delete()
-
-
-
-
 	insertsQuery3 = [
 		{
 		"_id" : 1,
 		"orderKey": 1,
-		"orderDate": 1,
+		"orderDate": datetime(2015,4,1,1,1,1),
 		"mktSegment": 4,
 		"shippriority": 1,
 		"lineItems": [{
 		  "discount": 0.5,
 		  "extendedPrice": 20,
-		  "shipDate": 19,
+		  "shipDate": datetime(2015,4,19,1,1,1),
 		  "returnFlag": 'a',
 		  "quantity": 1,
 		  "lineStatus": 2,
@@ -39,7 +35,7 @@ def insertsQ3():
 		},{
 		  "discount": 0.3,
 		  "extendedPrice": 20,
-		  "shipDate"      : 23,
+		  "shipDate"      : datetime(2015,4,23,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -52,13 +48,13 @@ def insertsQ3():
 	{
 		"_id" : 2,
 		"orderKey"   : 2,
-		"orderDate"  : 3,
+		"orderDate"  : datetime(2015,4,3,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.6,
 		  "extendedPrice" : 2,
-		  "shipDate"      : 7,
+		  "shipDate"      : datetime(2015,4,7,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -66,7 +62,7 @@ def insertsQ3():
 		},{
 		  "discount"      : 0.1,
 		  "extendedPrice" : 9,
-		  "shipDate"      : 16,
+		  "shipDate"      : datetime(2015,4,16,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -79,13 +75,13 @@ def insertsQ3():
 	{
 		"_id" : 3,
 		"orderKey"   : 3,
-		"orderDate"  : 7,
+		"orderDate"  : datetime(2015,4,7,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.4,
 		  "extendedPrice" : 35,
-		  "shipDate"      : 7,
+		  "shipDate"      : datetime(2015,4,7,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -93,7 +89,7 @@ def insertsQ3():
 		},{
 		  "discount"      : 0.3,
 		  "extendedPrice" : 2,
-		  "shipDate"      : 16,
+		  "shipDate"      : datetime(2015,4,16,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -106,13 +102,13 @@ def insertsQ3():
 	{
 		"_id" : 4,
 		"orderKey"   : 4,
-		"orderDate"  : 3,
+		"orderDate"  : datetime(2015,4,3,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.4,
 		  "extendedPrice" : 35,
-		  "shipDate"      : 7,
+		  "shipDate"      : datetime(2015,4,7,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -120,7 +116,7 @@ def insertsQ3():
 		},{
 		  "discount"      : 0.3,
 		  "extendedPrice" : 2,
-		  "shipDate"      : 4,
+		  "shipDate"      : datetime(2015,4,4,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -133,13 +129,13 @@ def insertsQ3():
 	{
 		"_id" : 5,
 		"orderKey"   : 5,
-		"orderDate"  : 2,
+		"orderDate"  : datetime(2015,4,2,1,1,1),
 		"mktSegment" : 6,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.4,
 		  "extendedPrice" : 35,
-		  "shipDate"      : 17,
+		  "shipDate"      : datetime(2015,4,17,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -147,7 +143,7 @@ def insertsQ3():
 		},{
 		  "discount"      : 0.3,
 		  "extendedPrice" : 2,
-		  "shipDate"      : 26,
+		  "shipDate"      : datetime(2015,4,26,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -167,8 +163,8 @@ insertsQ3()
 
 
 segment = 4
-date1 = 5
-date2 = 15
+date1 = datetime(2015,4,5,1,1,1)
+date2 = datetime(2015,4,15,1,1,1)
 l = db.query3.aggregate([
 	#{"$unwind": "$orders"},
 	{"$unwind": "$lineItems"},

@@ -17,19 +17,17 @@ def delete():
 
 def insertsQ4():
 	delete()
-
-
 	insertsQuery4 = [
 		{
 		"_id" : 1,
 		"orderKey": 1,
-		"orderDate": 25,
+		"orderDate": datetime(2015,1,23,1,1,1),
 		"mktSegment": 4,
 		"shippriority": 1,
 		"lineItems": [{
 		  "discount": 0.1,
 		  "extendedPrice": 20,
-		  "shipDate": 10,
+		  "shipDate": datetime(2015,1,4,1,1,1),
 		  "returnFlag": 'a',
 		  "quantity": 1,
 		  "lineStatus": 2,
@@ -37,7 +35,7 @@ def insertsQ4():
 		},{
 		  "discount": 0.2,
 		  "extendedPrice": 2,
-		  "shipDate"      : 23,
+		  "shipDate"      : datetime(2015,1,23,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 2,
 		  "lineStatus"    : 2,
@@ -50,13 +48,13 @@ def insertsQ4():
 	{
 		"_id" : 2,
 		"orderKey"   : 2,
-		"orderDate"  : 47,
+		"orderDate"  : datetime(2015,4,2,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.2,
 		  "extendedPrice" : 5,
-		  "shipDate"      : 10,
+		  "shipDate"      : datetime(2015,3,10,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -64,7 +62,7 @@ def insertsQ4():
 		},{
 		  "discount"      : 0.8,
 		  "extendedPrice" : 6,
-		  "shipDate"      : 15,
+		  "shipDate"      : datetime(2015,3,13,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -77,13 +75,13 @@ def insertsQ4():
 	{
 		"_id" : 3,
 		"orderKey"   : 3,
-		"orderDate"  : 122,
+		"orderDate"  : datetime(2015,9,15,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.2,
 		  "extendedPrice" : 5,
-		  "shipDate"      : 10,
+		  "shipDate"      : datetime(2015,1,23,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -91,7 +89,7 @@ def insertsQ4():
 		},{
 		  "discount"      : 0.8,
 		  "extendedPrice" : 6,
-		  "shipDate"      : 15,
+		  "shipDate"      : datetime(2015,4,3,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -99,18 +97,18 @@ def insertsQ4():
 		}
 		],
 	"regionName" : 'Aragon',
-	"nationName" : 'Francia'
+	"nationName" : 'Belgica'
 	},
 	{
 		"_id" : 4,
 		"orderKey"   : 4,
-		"orderDate"  : 15,
+		"orderDate"  : datetime(2015,1,12,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.2,
 		  "extendedPrice" : 5,
-		  "shipDate"      : 10,
+		  "shipDate"      : datetime(2015,1,7,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -118,7 +116,7 @@ def insertsQ4():
 		},{
 		  "discount"      : 0.8,
 		  "extendedPrice" : 6,
-		  "shipDate"      : 15,
+		  "shipDate"      : datetime(2015,1,7,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -126,18 +124,18 @@ def insertsQ4():
 		}
 		],
 	"regionName" : 'Catalunya',
-	"nationName" : 'Francia2'
+	"nationName" : 'Italia'
 	},
 	{
 		"_id" : 5,
 		"orderKey"   : 5,
-		"orderDate"  : 384,
+		"orderDate"  : datetime(2017,1,23,1,1,1),
 		"mktSegment" : 4,
 		"shippriority": 1,
 		"lineItems"  : [{
 		  "discount"      : 0.2,
 		  "extendedPrice" : 5,
-		  "shipDate"      : 10,
+		  "shipDate"      : datetime(2016,12,23,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -145,7 +143,7 @@ def insertsQ4():
 		},{
 		  "discount"      : 0.8,
 		  "extendedPrice" : 6,
-		  "shipDate"      : 15,
+		  "shipDate"      : datetime(2016,12,23,1,1,1),
 		  "returnFlag"    : 'a',
 		  "quantity"      : 1,
 		  "lineStatus"    : 2,
@@ -165,19 +163,21 @@ insertsQ4()
 
 
 region = 'Catalunya'
-date1 = 20
-date2 = 385
+date1 = datetime(2015,1,19,1,1,1)
+date2 = datetime(2016,1,19,1,1,1)
 l = db.query4.aggregate([
 
 	{"$unwind": "$lineItems"},
 
 	{"$match": {
-		"orderDate": {"$gte": date1, "$lt" : date2},
-		#"orderDate": {"$lt": date2},
+    "orderDate" : {
+      "$gte" : date1,
+      "$lt" : date2
+    },
 		"regionName": region
 
 	}}
-	,
+  ,
 	{"$group": {
 		"_id": {"nationName": "$nationName"},
 		"revenue": {"$sum": {"$multiply": [{"$subtract": [1,"$lineItems.discount"]}, "$lineItems.extendedPrice"]}}
