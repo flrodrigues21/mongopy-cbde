@@ -1,3 +1,14 @@
+"""
+To start MongoDB:
+mongod
+To Insert Data from a file:
+mongoimport --db databaseName --collection collectionName --drop --file file.json
+Example:
+mongoimport --db test --collection restaurants --drop --file primer-dataset.json
+
+To Delete DB:
+mongo databaseName --eval "db.dropDatabase()"
+"""
 #-*- encoding: utf-8 -*-
 from pymongo import MongoClient
 from pymongo import ASCENDING, DESCENDING
@@ -63,7 +74,7 @@ def insertsQ1():
 		  "discount"      : 0.5,
 		  "extendedPrice" : 20,
 		  "shipDate"      : datetime(2015,4,22,1,1,1),
-		  "returnFlag"    : 'a',
+		  "returnFlag"    : 'b',
 		  "quantity"      : 5,
 		  "lineStatus"    : 2,
 		  "tax"           : 0.05
@@ -77,7 +88,9 @@ def insertsQ1():
 
 
 
-print() #linea en blanco
+print()
+
+
 insertsQ1()
 
 
@@ -104,5 +117,3 @@ l = db.query1.aggregate([
 ])
 
 print(list(l))
-
-#print(list(db.query1.find()))

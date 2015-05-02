@@ -1,3 +1,14 @@
+"""
+To start MongoDB:
+mongod
+To Insert Data from a file:
+mongoimport --db databaseName --collection collectionName --drop --file file.json
+Example:
+mongoimport --db test --collection restaurants --drop --file primer-dataset.json
+
+To Delete DB:
+mongo databaseName --eval "db.dropDatabase()"
+"""
 #-*- encoding: utf-8 -*-
 from pymongo import MongoClient
 from pymongo import ASCENDING, DESCENDING
@@ -158,7 +169,7 @@ def insertsQ3():
 
 
 
-print() #linea en blanco
+print()
 insertsQ3()
 
 
@@ -186,5 +197,3 @@ l = db.query3.aggregate([
 ])
 
 print(list(l))
-
-#print(list(db.query3.find()))

@@ -1,3 +1,14 @@
+"""
+To start MongoDB:
+mongod
+To Insert Data from a file:
+mongoimport --db databaseName --collection collectionName --drop --file file.json
+Example:
+mongoimport --db test --collection restaurants --drop --file primer-dataset.json
+
+To Delete DB:
+mongo databaseName --eval "db.dropDatabase()"
+"""
 #-*- encoding: utf-8 -*-
 from pymongo import MongoClient
 from pymongo import ASCENDING, DESCENDING
@@ -167,7 +178,7 @@ def insertsQ2():
 
 
 
-print() #linea en blanco
+print()
 insertsQ2()
 
 
@@ -189,7 +200,6 @@ for x in l:
 	mincost = x['minsupcost']
 size = 1
 type = 'type'
-region = 'Catalunya'
 
 l = db.query2.aggregate([
 
@@ -217,5 +227,3 @@ l = db.query2.aggregate([
 ])
 
 print(list(l))
-
-#print(list(db.query2.find()))
